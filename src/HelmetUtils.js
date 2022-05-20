@@ -443,7 +443,7 @@ const updateTags = (type, tags) => {
                         if (newElement.styleSheet) {
                             newElement.styleSheet.cssText = tag.cssText;
                         } else {
-                            newElement.appendChild(
+                            newElement.prepend(
                                 document.createTextNode(tag.cssText)
                             );
                         }
@@ -474,7 +474,7 @@ const updateTags = (type, tags) => {
     }
 
     oldTags.forEach(tag => tag.parentNode.removeChild(tag));
-    newTags.forEach(tag => headElement.appendChild(tag));
+    newTags.forEach(tag => headElement.prepend(tag));
 
     return {
         oldTags,
